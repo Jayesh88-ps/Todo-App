@@ -1,0 +1,195 @@
+/*Use root property to define the CSS variables*/
+/*Root property is used to define the CSS variables*/
+
+:root{
+  --background: #101114;
+  --primary-color: #1C1D20;
+  --secondary-color: #4A4D57;
+  --accent-color: #00FFC4;
+  --text-color: #F9F9F9;
+}
+body{
+    min-height: 100vh;
+    padding: 10px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    height: 90vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16pt;
+    color: var(--text-color);
+}
+
+h1{
+    margin-top: 200px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    font-size: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.wrapper {
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#todo-input{
+    width: 100%;
+    padding: 12px 20px;
+    /*Use box-sizing property to include padding and border in the element's total width and height*/
+    /*Box-sizing property is used to control how the width and height of an element are calculated*/
+    box-sizing: border-box;
+    border: 2px solid var(--secondary-color);
+    border-radius: 1000px;
+    color: var(--text-color);
+    font: inherit;
+    /*Use caret-color property for setting the color of cursor*/
+    /*The caret is the blinking line that indicates where the next character will be inserted*/ 
+    caret-color: var(--accent-color);
+    background: none;
+}
+/*Use focus property to add a focus effect to the element*/
+/*Focus property is used to add a focus effect to the element*/
+#todo-input:focus{
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#todo-form{
+    position: relative;
+}
+
+
+#add-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: 100%;
+    padding: 0 30px;
+    border-radius: 1000px;
+    background-color: var(--accent-color);
+    color: #000;
+    font: inherit;  
+    font-weight: 600;
+    border: none;
+    /*Use cursor property for changing the cursor on hovering over a element*/
+    cursor: pointer;
+}
+
+
+.todo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 0 16px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+}
+
+.todo .todo-text{
+    /*Use flex-grow property to make the element grow and fill the available space*/
+    /*Flex-grow property is used to define the ability for a flex item to grow if necessary*/
+    flex-grow: 1;
+    padding: 15px;
+    padding-right: 0;
+    transition: 200ms ease;
+}
+
+.delete-button{
+    padding: 3px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/*Use transition property to add a transition effect to the element*/
+/*Transition property is used to change the property of an element over a specified duration*/
+.delete-button svg{
+    transition: 200ms ease;
+ }
+
+
+/*Use fill property to specify how the transition effect should be applied*/
+/*Fill property is used to specify how the transition effect should be applied*/
+.delete-button:hover svg{
+    fill: #ff0033;
+
+}
+
+
+.costum-checkbox{
+   border: 2px solid var(--accent-color);
+    border-radius: 50%;
+    min-width: 20px;
+    min-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*Use flex-shrink property to prevent the element from shrinking*/
+    /*Flex-shrink property is used to define the ability for a flex item to shrink if necessary*/
+    flex-shrink: 0;
+    transition: 200ms ease;
+    cursor: pointer;
+}
+
+/*Use input property to hide the checkbox*/
+
+input[type="checkbox"]:checked ~ .costum-checkbox{
+    background-color: var(--accent-color);
+}
+input[type="checkbox"]:checked ~ .costum-checkbox svg{
+    fill: var(--primary-color);
+}
+
+/*Use text-decoration property to add a line-through effect to the text*/
+/*Text-decoration property is used to add a line-through effect to the text*/
+input[type="checkbox"]:checked ~ .todo-text{
+    text-decoration: line-through;
+    color: var(--secondary-color);
+}
+
+/*Use transform property to rotate the svg element*/
+input[type="checkbox"]{
+    display: none;
+}
+
+
+@media (max-width: 500px){
+    html{
+        font-size: 14pt;
+    }
+    #add-button{
+        position: unset;
+        width: 100%;
+        padding: 15px;
+        margin-top: 10px;
+        height: auto;
+    }
+
+    h1{
+        font-size: 15vw;
+        margin-top: 50px;
+    }
+}
+
+ 
